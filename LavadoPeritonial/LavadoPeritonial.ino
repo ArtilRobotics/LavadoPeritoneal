@@ -11,6 +11,8 @@ int in3 = 9;
 int in4 = 10;
 
 int sensorValue = 0;
+const long interval = 750;
+unsigned long previousMillis = 0;
 
 void setup() {
   // put your setup code here, to run once:
@@ -64,21 +66,35 @@ void loop() {
   d4 = digitalRead(in4);                                                                                                                                d4 = digitalRead(in4);
   delay(10);
 
+  unsigned long currentMillis = millis();
+
   if (d1 == 0)
   {
+    if (currentMillis - previousMillis >= interval) {
+    previousMillis = currentMillis;
     val = 30;
+    }
   }
   else if (d2 == 0)
   {
+    if (currentMillis - previousMillis >= interval) {
+    previousMillis = currentMillis;
     val = 85;
+    }
   }
   else if (d3 == 0)
   {
+    if (currentMillis - previousMillis >= interval) {
+    previousMillis = currentMillis;
     val = 125;
+    }
   }
   else if (d4 == 0)
   {
+    if (currentMillis - previousMillis >= interval) {
+    previousMillis = currentMillis;
     val = 165;
+    }
   }
 
   myservo.write(val);                  // sets the servo position according to the scaled value
