@@ -1,10 +1,11 @@
+#include <Arduino.h>
+
 #include <Servo.h>
 
 Servo myservo;  // create servo object to control a servo
 
 int val;    // variable to read the value from the analog pin
 int led = 13;
-
 int in1 = 7;
 int in2 = 8;
 int in3 = 9;
@@ -15,6 +16,7 @@ const long interval = 750;
 unsigned long previousMillis = 0;
 
 void setup() {
+  Serial.begin(9600);
   // put your setup code here, to run once:
   pinMode(0, INPUT); 
   pinMode(in1, INPUT);
@@ -30,9 +32,9 @@ void setup() {
   digitalWrite(in4, HIGH);
   delay(2);
   pinMode(led, OUTPUT);
-  myservo.attach(5);
+  myservo.attach(3);
   //myservo.write(90);
-  Serial.begin(9600);
+  
   digitalWrite(led, HIGH);   // turn the LED on (HIGH is the voltage level)
   delay(50);               // wait for a second
   digitalWrite(led, LOW);    // turn the LED off by making the voltage LOW
