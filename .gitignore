@@ -349,3 +349,5 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 secretos.key
+Simulacion/
+Hardware/555_ServoControl/555_ServoControl-backups/
